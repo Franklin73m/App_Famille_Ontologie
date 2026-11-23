@@ -1,0 +1,110 @@
+<p-card styleClass="view-card link-card">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Comparer deux personnes</p>
+      <h2>Lien entre deux personnes</h2>
+      <p class="section-description">Choisissez les deux personnes, puis lancez la recherche du lien familial.</p>
+    </div>
+    <span class="section-icon" aria-hidden="true"><i class="pi pi-share-alt"></i></span>
+  </div>
+
+  <div class="select-grid">
+    <app-selecteur-personne
+      inputId="link-person-a"
+      etiquette="Première personne"
+      placeholder="Choisir la première personne"
+      [personnes]="personnes"
+      [valeur]="a"
+      (valeurChange)="choisirA($event)" />
+    <app-selecteur-personne
+      inputId="link-person-b"
+      etiquette="Seconde personne"
+      placeholder="Choisir la seconde personne"
+      [personnes]="personnes"
+      [valeur]="b"
+      (valeurChange)="choisirB($event)" />
+  </div>
+
+  <div class="search-actions">
+    <p-button
+      label="Rechercher le lien"
+      icon="pi pi-search"
+      [loading]="chargement"
+      [disabled]="!a || !b || chargement"
+      (onClick)="chercher()" />
+    <p-button
+      label="Inverser"
+      icon="pi pi-sort-alt"
+      severity="secondary"
+      variant="text"
+      aria-label="Inverser les deux personnes"
+      [disabled]="!a || !b || chargement"
+      (onClick)="inverser()" />
+  </div>
+
+  @if (chargement) {
+    <div class="inline-loading" role="status" aria-live="polite">
+      <p-progress-spinner aria-label="Recherche du lien" strokeWidth="5" [style]="{ width: '2rem', height: '2rem' }" />
+      <span>Recherche du lien…</span>
+    </div>
+  }
+  @if (erreur) {
+    <p-message class="state-message" severity="error" role="alert" aria-live="assertive">{{ erreur }}</p-message>
+  }
+
+  @if (!resultat && !chargement && !erreur) {
+    @if (!a || !b) {
+      <div class="empty-state">
+        <span class="empty-icon" aria-hidden="true"><i class="pi pi-share-alt"></i></span>
+        <h3>Sélectionnez deux personnes</h3>
+        <p>Le chemin de parenté s’affichera après avoir lancé la recherche.</p>
+      </div>
+    } @else if (a === b) {
+      <p-message class="state-message" severity="warn">Choisissez deux personnes différentes.</p-message>
+    } @else {
+      <div class="empty-state">
+        <span class="empty-icon" aria-hidden="true"><i class="pi pi-search"></i></span>
+        <h3>Prêt à rechercher le lien</h3>
+        <p>Lancez la recherche pour afficher le chemin de parenté.</p>
+      </div>
+    }
+  }
+
+  @if (resultat; as r) {
+    <p-card styleClass="link-result-card">
+      <div class="result-heading">
+        <div>
+          <p class="eyebrow">Résultat de la recherche</p>
+          <h3>{{ r.a.nom }} <i class="pi pi-arrow-right" aria-hidden="true"></i> {{ r.b.nom }}</h3>
+        </div>
+        <p-tag
+          [value]="r.a_vers_b.length + (r.a_vers_b.length === 1 ? ' étape' : ' étapes')"
+          icon="pi pi-share-alt"
+          severity="info"
+          [rounded]="true" />
+      </div>
+
+      @if (r.a_vers_b.length > 0) {
+        <ol class="relationship-path">
+          @for (lien of r.a_vers_b; track $index) {
+            <li>{{ lien.phrase }}</li>
+          }
+        </ol>
+      } @else {
+        <p class="link-summary">{{ r.resume }}</p>
+        <p class="path-empty">Aucun chemin de parenté n’a été trouvé entre ces personnes.</p>
+      }
+
+      @if (r.b_vers_a.length > 0) {
+        <details class="reverse-path">
+          <summary>Voir le chemin dans l’autre sens</summary>
+          <ol class="relationship-path">
+            @for (lien of r.b_vers_a; track $index) {
+              <li>{{ lien.phrase }}</li>
+            }
+          </ol>
+        </details>
+      }
+    </p-card>
+  }
+</p-card>

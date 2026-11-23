@@ -1,0 +1,32 @@
+<p-card styleClass="view-card tree-card">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Vue d’ensemble</p>
+      <h2>Arbre familial</h2>
+      <p class="section-description">Explorez les générations et les liens entre les membres de la famille.</p>
+    </div>
+    <span class="section-icon" aria-hidden="true"><i class="pi pi-sitemap"></i></span>
+  </div>
+
+  <div class="tree-toolbar">
+    <p class="tree-help">
+      Flèche : parent vers enfant. Pointillés : mariage. Utilisez la molette pour zoomer et faites glisser pour déplacer l’arbre.
+    </p>
+    <div class="tree-legend" aria-label="Légende des personnes">
+      <p-tag value="Homme" styleClass="gender-tag male-tag" />
+      <p-tag value="Femme" styleClass="gender-tag female-tag" />
+    </div>
+  </div>
+
+  @if (chargement) {
+    <div class="inline-loading" role="status" aria-live="polite">
+      <p-progress-spinner aria-label="Chargement de l’arbre familial" strokeWidth="5" [style]="{ width: '2rem', height: '2rem' }" />
+      <span>Chargement de l’arbre familial…</span>
+    </div>
+  }
+  @if (erreur) {
+    <p-message class="state-message" severity="error" role="alert" aria-live="assertive">{{ erreur }}</p-message>
+  }
+
+  <div #conteneur class="family-graph" role="application" aria-label="Arbre familial interactif"></div>
+</p-card>

@@ -1,0 +1,90 @@
+<p-card styleClass="view-card family-card">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Explorer une personne</p>
+      <h2>Famille d’une personne</h2>
+      <p class="section-description">Choisissez une personne pour parcourir ses liens de parenté.</p>
+    </div>
+    <span class="section-icon" aria-hidden="true"><i class="pi pi-users"></i></span>
+  </div>
+
+  <app-selecteur-personne
+    inputId="family-person-select"
+    etiquette="Personne"
+    placeholder="Choisir une personne"
+    [personnes]="personnes"
+    [valeur]="selection"
+    (valeurChange)="choisir($event)" />
+
+  @if (chargement) {
+    <div class="inline-loading" role="status" aria-live="polite">
+      <p-progress-spinner aria-label="Chargement de la famille" strokeWidth="5" [style]="{ width: '2rem', height: '2rem' }" />
+      <span>Recherche de la famille…</span>
+    </div>
+  }
+  @if (erreur) {
+    <p-message class="state-message" severity="error" role="alert" aria-live="assertive">{{ erreur }}</p-message>
+  }
+
+  @if (!selection && !chargement && !erreur) {
+    <div class="empty-state">
+      <span class="empty-icon" aria-hidden="true"><i class="pi pi-user-plus"></i></span>
+      <h3>Commencez par choisir une personne</h3>
+      <p>Les parents, enfants et autres liens apparaîtront ici.</p>
+    </div>
+  }
+
+  @if (resultat; as r) {
+    <div class="result-heading">
+      <div>
+        <p class="eyebrow">Résultats</p>
+        <h3>Famille de {{ r.personne.nom }}</h3>
+      </div>
+      <p-tag
+        [value]="r.membres.length + (r.membres.length === 1 ? ' personne liée' : ' personnes liées')"
+        icon="pi pi-users"
+        severity="info"
+        [rounded]="true" />
+    </div>
+
+    @if (r.membres.length === 0) {
+      <p-message class="state-message" severity="info">Aucun lien familial trouvé pour cette personne.</p-message>
+    } @else {
+      <div class="relationship-grid">
+        @for (groupe of groupes; track groupe.type) {
+          <p-card styleClass="relationship-card">
+            <div class="relationship-card-heading">
+              <h4>{{ groupe.type }}</h4>
+              <p-tag
+                [value]="groupe.membres.length + (groupe.membres.length === 1 ? ' personne' : ' personnes')"
+                severity="secondary"
+                [rounded]="true" />
+            </div>
+            <ul class="relative-list">
+              @for (entree of groupe.membres; track entree.personne.id) {
+                <li class="relative-item">
+                  <div class="relative-person">
+                    <button
+                      type="button"
+                      class="person-link"
+                      [class.femme]="classe(entree.personne) === 'femme'"
+                      [attr.aria-label]="'Afficher la famille de ' + entree.personne.nom"
+                      (click)="choisir(entree.personne.id)">
+                      {{ symbole(entree.personne) }} {{ entree.personne.nom }}
+                    </button>
+                    @if (age(entree.personne); as ageTexte) {
+                      <span class="person-age">{{ ageTexte }}</span>
+                    }
+                  </div>
+                  @for (lien of entree.liens; track lien.phrase) {
+                    <p class="relationship-description">{{ lien.phrase }}</p>
+                  }
+                </li>
+              }
+            </ul>
+          </p-card>
+        }
+      </div>
+    }
+  }
+</p-card>

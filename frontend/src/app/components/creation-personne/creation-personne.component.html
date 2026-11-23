@@ -1,0 +1,113 @@
+<p-dialog
+  header="Ajouter une personne"
+  [visible]="visible"
+  (visibleChange)="changerVisibilite($event)"
+  [modal]="true"
+  [closable]="!chargement"
+  [closeOnEscape]="!chargement"
+  [dismissableMask]="!chargement"
+  [style]="{ width: 'min(42rem, calc(100vw - 2rem))' }"
+  [breakpoints]="{ '640px': '96vw' }">
+  <p class="dialog-description">La personne sera ajoutée à l’ontologie et reliée à la personne choisie.</p>
+
+  @if (erreur) {
+    <p-message class="state-message" severity="error" role="alert" aria-live="assertive">{{ erreur }}</p-message>
+  }
+
+  <div class="creation-form">
+    <div class="form-field form-field-wide">
+      <label class="field-label" for="creation-nom">Nom complet <span aria-hidden="true">*</span></label>
+      <input
+        pInputText
+        id="creation-nom"
+        name="nom"
+        [(ngModel)]="nom"
+        maxlength="100"
+        autocomplete="name"
+        placeholder="Ex. Élodie Martin"
+        [disabled]="chargement">
+    </div>
+
+    <div class="form-field">
+      <label class="field-label" for="creation-sexe">Sexe <span aria-hidden="true">*</span></label>
+      <p-select
+        inputId="creation-sexe"
+        name="sexe"
+        [options]="sexes"
+        [(ngModel)]="sexe"
+        optionLabel="label"
+        optionValue="value"
+        ariaLabel="Sexe"
+        placeholder="Choisir"
+        [fluid]="true"
+        [disabled]="chargement" />
+    </div>
+
+    <div class="form-field">
+      <label class="field-label" for="creation-age">Âge <span class="optional-label">(facultatif)</span></label>
+      <input
+        pInputText
+        id="creation-age"
+        name="age"
+        type="number"
+        min="0"
+        max="130"
+        step="1"
+        [(ngModel)]="age"
+        placeholder="Âge en années"
+        [disabled]="chargement">
+    </div>
+
+    <fieldset class="form-field form-field-wide relation-field" [disabled]="chargement">
+      <legend class="field-label">Lien familial <span aria-hidden="true">*</span></legend>
+      <div class="relation-options">
+        @for (option of relations; track option.value) {
+          <div class="relation-option">
+            <p-radiobutton
+              [inputId]="'creation-relation-' + option.value"
+              name="relation"
+              [value]="option.value"
+              [(ngModel)]="relation"
+              [disabled]="chargement" />
+            <label [for]="'creation-relation-' + option.value">{{ option.label }}</label>
+          </div>
+        }
+      </div>
+    </fieldset>
+
+    <div class="form-field form-field-wide">
+      <label class="field-label" for="creation-personne-liee">Personne de rattachement <span aria-hidden="true">*</span></label>
+      <p-select
+        inputId="creation-personne-liee"
+        name="personneLiee"
+        [options]="personnes"
+        [(ngModel)]="personneLieeId"
+        optionLabel="nom"
+        optionValue="id"
+        ariaLabel="Personne de rattachement"
+        filter
+        filterBy="nom,id"
+        filterPlaceholder="Rechercher une personne"
+        emptyFilterMessage="Aucune personne trouvée"
+        placeholder="Choisir une personne"
+        [showClear]="true"
+        [fluid]="true"
+        [disabled]="chargement" />
+    </div>
+  </div>
+
+  <div class="dialog-actions">
+    <p-button
+      label="Annuler"
+      severity="secondary"
+      variant="text"
+      [disabled]="chargement"
+      (onClick)="changerVisibilite(false)" />
+    <p-button
+      label="Créer et rattacher"
+      icon="pi pi-user-plus"
+      [loading]="chargement"
+      [disabled]="!formulaireValide()"
+      (onClick)="creer()" />
+  </div>
+</p-dialog>

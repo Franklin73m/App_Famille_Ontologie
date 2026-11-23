@@ -1,0 +1,832 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/agognonulrich/ontologies/2026/9/untitled-ontology-2"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/agognonulrich/ontologies/2026/9/untitled-ontology-2">
+    <Prefix name="" IRI="http://www.semanticweb.org/agognonulrich/ontologies/2026/9/untitled-ontology-2"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Pere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PetitEnfant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#parentDe2"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#grandParentDe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cousine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Oncle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#marierA4"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Homme"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#enfantDe1"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#parentDe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Personne"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Femme"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BelleMere"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#parentDe3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BeauParent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DemiSoeur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BeauPere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PetiteFille"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BeauFils"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fille"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#enfantDe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DemiFrere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Frere"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#marierA1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Niece"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Garcon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Feminin"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tante"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BelleFille"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#marierA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#enfantDe3"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#age"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fils"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fillette"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Soeur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GrandPere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Masculin"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#frereDe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Parent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GrandeMere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cousin"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#marierA2"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#parentDe1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PetitFils"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#soeurDe"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#marierA3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Neuveu"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#enfantDe2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GrandParent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Enfant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sexe"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#BeauFils"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#marierA"/>
+                    <ObjectUnionOf>
+                        <Class IRI="#BeauPere"/>
+                        <Class IRI="#BelleMere"/>
+                    </ObjectUnionOf>
+                </ObjectSomeValuesFrom>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BeauParent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Personne"/>
+            <ObjectComplementOf>
+                <Class IRI="#Parent"/>
+            </ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#marierA"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BeauPere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectComplementOf>
+                <Class IRI="#Pere"/>
+            </ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#marierA"/>
+                <Class IRI="#Mere"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BelleFille"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#marierA"/>
+                    <ObjectUnionOf>
+                        <Class IRI="#BeauPere"/>
+                        <Class IRI="#BelleMere"/>
+                    </ObjectUnionOf>
+                </ObjectSomeValuesFrom>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#BelleMere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectComplementOf>
+                <Class IRI="#Mere"/>
+            </ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#marierA"/>
+                <Class IRI="#Pere"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Cousin"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Oncle"/>
+                    <Class IRI="#Tante"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Cousine"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Oncle"/>
+                    <Class IRI="#Tante"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DemiFrere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Parent"/>
+                    <ObjectMinCardinality cardinality="2">
+                        <ObjectProperty IRI="#marierA"/>
+                        <Class IRI="#Personne"/>
+                    </ObjectMinCardinality>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#frereDe"/>
+                <Class IRI="#Personne"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DemiSoeur"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Parent"/>
+                    <ObjectMinCardinality cardinality="2">
+                        <ObjectProperty IRI="#marierA"/>
+                        <Class IRI="#Personne"/>
+                    </ObjectMinCardinality>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#soeurDe"/>
+                <Class IRI="#Personne"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Enfant"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Femme"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <DataMinCardinality cardinality="21">
+                <DataProperty IRI="#age"/>
+                <Datatype abbreviatedIRI="owl:rational"/>
+            </DataMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Fille"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Fillette"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <DataMaxCardinality cardinality="20">
+                <DataProperty IRI="#age"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+            </DataMaxCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Fils"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Frere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#frereDe"/>
+                <Class IRI="#Personne"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Garcon"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <DataMaxCardinality cardinality="20">
+                <DataProperty IRI="#age"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+            </DataMaxCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#GrandParent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parentDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#GrandPere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parentDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#GrandeMere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parentDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Homme"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <DataMinCardinality cardinality="21">
+                <DataProperty IRI="#age"/>
+                <Datatype abbreviatedIRI="owl:rational"/>
+            </DataMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Mere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Parent"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Neuveu"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Frere"/>
+                    <Class IRI="#Soeur"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Niece"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Frere"/>
+                    <Class IRI="#Soeur"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Oncle"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#frereDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Parent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parentDe"/>
+                <Class IRI="#Enfant"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Pere"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Parent"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PetitEnfant"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <Class IRI="#Enfant"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PetitFils"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Masculin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <Class IRI="#Enfant"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PetiteFille"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#enfantDe"/>
+                <Class IRI="#Enfant"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Sexe"/>
+        <ObjectUnionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Masculin"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Soeur"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#soeurDe"/>
+                <Class IRI="#Personne"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Tante"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Feminin"/>
+            <Class IRI="#Personne"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#soeurDe"/>
+                <Class IRI="#Parent"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#BeauFils"/>
+        <Class IRI="#Fils"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BeauParent"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BeauPere"/>
+        <Class IRI="#BeauParent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BelleFille"/>
+        <Class IRI="#Fille"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BelleMere"/>
+        <Class IRI="#BeauParent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cousin"/>
+        <Class IRI="#Enfant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cousine"/>
+        <Class IRI="#Enfant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DemiFrere"/>
+        <Class IRI="#Frere"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DemiSoeur"/>
+        <Class IRI="#Soeur"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Enfant"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feminin"/>
+        <Class IRI="#Sexe"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Femme"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fille"/>
+        <Class IRI="#Enfant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fillette"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fils"/>
+        <Class IRI="#Enfant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Frere"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Garcon"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GrandParent"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GrandPere"/>
+        <Class IRI="#GrandParent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GrandeMere"/>
+        <Class IRI="#GrandParent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Homme"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Masculin"/>
+        <Class IRI="#Sexe"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mere"/>
+        <Class IRI="#Parent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Neuveu"/>
+        <Class IRI="#Fils"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Niece"/>
+        <Class IRI="#Fille"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Oncle"/>
+        <Class IRI="#Frere"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Parent"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pere"/>
+        <Class IRI="#Parent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PetitEnfant"/>
+        <Class IRI="#Enfant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PetitFils"/>
+        <Class IRI="#PetitEnfant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PetiteFille"/>
+        <Class IRI="#PetitEnfant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Soeur"/>
+        <Class IRI="#Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tante"/>
+        <Class IRI="#Soeur"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#enfantDe1"/>
+        <ObjectProperty IRI="#enfantDe"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#enfantDe2"/>
+        <ObjectProperty IRI="#enfantDe"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#enfantDe3"/>
+        <ObjectProperty IRI="#enfantDe"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#grandParentDe"/>
+        <ObjectProperty IRI="#parentDe"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#marierA1"/>
+        <ObjectProperty IRI="#marierA"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#marierA2"/>
+        <ObjectProperty IRI="#marierA"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#marierA3"/>
+        <ObjectProperty IRI="#marierA"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#marierA4"/>
+        <ObjectProperty IRI="#marierA"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#parentDe1"/>
+        <ObjectProperty IRI="#parentDe"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#parentDe2"/>
+        <ObjectProperty IRI="#parentDe"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#parentDe3"/>
+        <ObjectProperty IRI="#parentDe"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#enfantDe"/>
+        <ObjectProperty IRI="#parentDe"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#enfantDe1"/>
+        <ObjectProperty IRI="#parentDe1"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#enfantDe2"/>
+        <ObjectProperty IRI="#parentDe2"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#enfantDe3"/>
+        <ObjectProperty IRI="#parentDe3"/>
+    </InverseObjectProperties>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#enfantDe3"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#grandParentDe"/>
+    </InverseFunctionalObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#frereDe"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#soeurDe"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#enfantDe1"/>
+        <Class IRI="#Enfant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#enfantDe2"/>
+        <Class IRI="#Parent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#enfantDe3"/>
+        <Class IRI="#PetitEnfant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#marierA1"/>
+        <Class IRI="#Fils"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#marierA2"/>
+        <Class IRI="#BeauFils"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#marierA3"/>
+        <Class IRI="#GrandPere"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#marierA4"/>
+        <Class IRI="#Pere"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#enfantDe1"/>
+        <Class IRI="#Parent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#enfantDe2"/>
+        <Class IRI="#GrandParent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#enfantDe3"/>
+        <Class IRI="#Enfant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#marierA1"/>
+        <Class IRI="#BelleFille"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#marierA2"/>
+        <Class IRI="#Fille"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#marierA3"/>
+        <Class IRI="#GrandeMere"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#marierA4"/>
+        <Class IRI="#Mere"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#age"/>
+        <Class IRI="#Personne"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#age"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

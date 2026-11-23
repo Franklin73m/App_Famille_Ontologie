@@ -1,0 +1,10 @@
+# Bornes de versions (et non versions exactes) : elles évitent les échecs d'installation
+# quand une version de Python très récente n'a pas de binaires pour une version trop ancienne.
+# Python recommandé : 3.11, 3.12 ou 3.13.
+# Installation : pip install -r requirements.txt
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+pydantic>=2.10,<3
+# --- tests (facultatif : les tests du moteur n'en ont pas besoin) ---
+httpx>=0.27,<1
+pytest>=8,<10

@@ -1,0 +1,19 @@
+<div class="person-select-field">
+  <label class="field-label" [for]="inputId">{{ etiquette }}</label>
+  <p-select
+    [inputId]="inputId"
+    [options]="personnes"
+    [ngModel]="valeur"
+    (ngModelChange)="selectionner($event)"
+    optionLabel="nom"
+    optionValue="id"
+    [filter]="true"
+    filterBy="nom,id"
+    filterPlaceholder="Tapez un nom ou un identifiant"
+    [showClear]="true"
+    [fluid]="true"
+    [placeholder]="placeholder"
+    [ariaLabel]="etiquette"
+    emptyFilterMessage="Aucune personne trouvée"
+    emptyMessage="Aucune personne disponible" />
+</div>

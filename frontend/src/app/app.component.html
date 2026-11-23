@@ -1,0 +1,65 @@
+<header class="app-header">
+  <div class="page-shell header-content">
+    <div class="brand-mark" aria-hidden="true"><i class="pi pi-users"></i></div>
+    <div class="header-copy">
+      <p class="eyebrow">Explorateur généalogique</p>
+      <h1>Famille · Ontologie</h1>
+      <p>Explorez les liens familiaux à partir de l’ontologie OWL.</p>
+    </div>
+    <div class="header-actions">
+      @if (!chargement && !erreur) {
+        <span class="people-count"><i class="pi pi-users" aria-hidden="true"></i>{{ personnes.length }} personnes</span>
+      }
+      <p-button
+        label="Ajouter une personne"
+        icon="pi pi-user-plus"
+        severity="contrast"
+        [outlined]="true"
+        [disabled]="chargement || !!erreur || personnes.length === 0"
+        (onClick)="ouvrirCreation()" />
+    </div>
+  </div>
+</header>
+
+<main class="page-shell app-content">
+  @if (erreur) {
+    <div class="error-state" role="alert" aria-live="assertive">
+      <p-message severity="error">{{ erreur }}</p-message>
+      <p-button label="Réessayer" icon="pi pi-refresh" (onClick)="charger()" />
+    </div>
+  } @else if (chargement) {
+    <div class="loading-state" role="status" aria-live="polite">
+      <p-progress-spinner aria-label="Chargement des personnes" strokeWidth="5" [style]="{ width: '2.5rem', height: '2.5rem' }" />
+      <span>Chargement des personnes…</span>
+    </div>
+  } @else {
+    @if (succes) {
+      <p-message class="success-banner" severity="success" role="status" aria-live="polite">{{ succes }}</p-message>
+    }
+    <p-tabs [value]="onglet" (valueChange)="onglet = $event" scrollable>
+      <p-tablist aria-label="Outils d’exploration familiale">
+        <p-tab value="family"><i class="pi pi-users" aria-hidden="true"></i> Famille d’une personne</p-tab>
+        <p-tab value="link"><i class="pi pi-share-alt" aria-hidden="true"></i> Lien entre deux personnes</p-tab>
+        <p-tab value="tree"><i class="pi pi-sitemap" aria-hidden="true"></i> Arbre familial</p-tab>
+      </p-tablist>
+      <p-tabpanels>
+        <p-tabpanel value="family">
+          <app-famille [personnes]="personnes" [personneInitiale]="personneInitiale" />
+        </p-tabpanel>
+        <p-tabpanel value="link">
+          <app-lien [personnes]="personnes" />
+        </p-tabpanel>
+        <p-tabpanel value="tree">
+          @if (onglet === 'tree') {
+            <app-arbre />
+          }
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
+  }
+</main>
+
+<app-creation-personne
+  [(visible)]="creationOuverte"
+  [personnes]="personnes"
+  (personneCreee)="personneAjoutee($event)" />
